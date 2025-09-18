@@ -1,8 +1,53 @@
-# NAND Gate — Detailed Explanation
-
-This README provides a clear, detailed explanation of the **NAND gate** suitable for adding to a GitHub repository. It includes theory, truth table, boolean algebra, circuit representation, Verilog implementations (gate-level and behavioral), a testbench, simulation instructions, applications, and advantages/disadvantages.
+#### NAND CADENCE 
 
 ---
+
+### **Schematic Diagram (NAND_SCHEMATIC.png)**
+
+This image displays the fundamental **transistor-level schematic** of the 2-input NAND gate. The circuit is designed using complementary metal-oxide-semiconductor (**CMOS**) technology.
+
+* **Pull-up Network (PMOS Transistors):** Two PMOS transistors (**PM0** and **PM1**) are connected in **parallel** between the power supply ($$V_{DD}$$) and the output ($$V_{out}$$). This network's function is to pull the output high (to $$V_{DD}$$) when at least one of the inputs ($$V_{a}$$or$$V_{b}$$) is low.
+* **Pull-down Network (NMOS Transistors):** Two NMOS transistors (**NM0** and **NM1**) are connected in **series** between the output ($$V_{out}$$) and ground (**Gnd**). This network pulls the output low when both inputs ($$V_{a}$$and$$V_{b}$$) are high.
+
+This arrangement ensures that the output is only low when both inputs are high, which is the defining characteristic of a NAND gate.
+
+### **Schematic Symbol (NAND_SYMBOL.png)**
+
+The schematic symbol is a simplified, abstract representation of the complex transistor-level circuit. This symbol makes it easier to integrate the NAND gate into larger circuit designs without having to show every transistor.
+
+* **Inputs:** It has two input pins labeled **Va** and **Vb**.
+* **Output:** A single output pin is labeled **Vout**.
+* **Power and Ground:** The power ($$V_{DD}$$) and ground (**Gnd**) pins are essential for its operation and are included in the symbol.
+
+This abstraction is a standard practice in digital circuit design, promoting modularity and readability.
+
+### **Testbench Setup (NAND_TB.png)**
+
+This image shows the **testbench** used to verify the functionality of the NAND gate. The testbench provides the necessary input signals and power supply for a simulation.
+
+* **Input Stimulus:** Two voltage pulse sources (**V0** and **V1**) are connected to the inputs **Va** and **Vb** of the NAND gate. These sources generate the logical low and high signals to test all possible input combinations (00, 01, 10, 11).
+* **Power Supply:** A DC voltage source (**V2**) provides a constant voltage of $$V_{DD}=1$$V to power the gate.
+* **Device Under Test (DUT):** The NAND gate symbol (**I0**) is the component being tested, with its pins connected appropriately to the input sources and output probes.
+
+### **Transient Simulation Results (NAND_OUTPUTS.png)**
+
+This image shows the output of a **transient analysis** simulation, which plots the voltage waveforms over time. This is a crucial step to verify the gate's behavior.
+
+* **Input Waveforms:** The top two plots display the input signals for **Va** (red) and **Vb** (green). These waveforms are pulse signals representing logical 0 and 1.
+* **Output Waveform:** The bottom plot shows the output signal for **Vout** (magenta).
+
+By observing the output's behavior relative to the inputs, we can confirm the gate's functionality:
+
+* **If Va = 0 AND Vb = 0:** The output **Vout** is high (logic 1).
+* **If Va = 0 AND Vb = 1:** The output **Vout** is high (logic 1).
+* **If Va = 1 AND Vb = 0:** The output **Vout** is high (logic 1).
+* **If Va = 1 AND Vb = 1:** The output **Vout** is low (logic 0).
+
+The simulation results perfectly match the **truth table** for a NAND gate, confirming that the circuit design is correct.
+
+
+
+## VERILOG SECTION
 
 ## Overview
 
@@ -110,7 +155,7 @@ module nand_gate (
 endmodule
 ```
 
-Both modules are functionally equivalent; use the style that best fits your project conventions.
+
 
 ---
 
@@ -178,7 +223,3 @@ endmodule
 
 ---
 
-
-
-* Add the Verilog files and testbench to the repo structure above, or
-* Provide a transistor-level SPICE netlist or Cadence Virtuoso checklist for schematic entry and LVS/DRC steps.
