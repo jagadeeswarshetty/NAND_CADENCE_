@@ -8,7 +8,9 @@ Both **transistor-level CMOS design (Cadence Virtuoso)** and **Verilog HDL** are
 
 ## CMOS Design in Cadence
 
-### Schematic Diagram (NAND_SCHEMATIC.png)
+### Schematic Diagram 
+
+![NAND Schematic](NAND_SCHEMATIC.png)
 
 The transistor-level schematic of a 2-input NAND gate, built using CMOS technology:
 
@@ -21,6 +23,8 @@ This configuration ensures the output is **low only when both inputs are high**.
 
 ### Schematic Symbol (NAND_SYMBOL.png)
 
+![NAND Symbol](NAND_SYMBOL.png)
+
 A simplified symbol representing the NAND gate for modular use in larger designs.  
 
 - **Inputs:** `Va`, `Vb`  
@@ -29,7 +33,8 @@ A simplified symbol representing the NAND gate for modular use in larger designs
 
 ---
 
-### Testbench Setup (NAND_TB.png)
+### Testbench Setup
+![NAND Testbench](NAND_TB.png)
 
 The testbench applies input signals and power to verify the gate:
 
@@ -39,8 +44,8 @@ The testbench applies input signals and power to verify the gate:
 
 ---
 
-### Transient Simulation Results (NAND_OUTPUTS.png)
-
+### Transient Simulation Results
+![NAND Outputs](NAND_OUTPUTS.png)
 - **Inputs:** `Va` (red), `Vb` (green)  
 - **Output:** `Vout` (magenta)  
 
